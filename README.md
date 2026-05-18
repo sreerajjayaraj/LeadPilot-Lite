@@ -56,3 +56,6 @@ Best customers:
 ## Important limitation
 
 Because this version has no backend, leads are stored on one device/browser. That is what keeps it maintenance-free. A future premium version could add sync, team accounts, WhatsApp integration, or real AI message generation.
+
+For personal/business use by purchaser only.
+Redistribution is not permitted.
