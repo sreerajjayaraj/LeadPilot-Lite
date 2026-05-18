@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#111827">
+    <title>LeadPilot Lite</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="icons/icon.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">LeadPilot Lite</p>
+          <h1>Today's follow-ups</h1>
+        </div>
+        <button id="installButton" class="icon-button hidden" type="button" aria-label="Install app" title="Install app">
+          <span aria-hidden="true">Install</span>
+        </button>
+      </header>
+
+      <main>
+        <section class="metric-strip" aria-label="Lead summary">
+          <article>
+            <span id="dueCount">0</span>
+            <p>Due now</p>
+          </article>
+          <article>
+            <span id="hotCount">0</span>
+            <p>Hot leads</p>
+          </article>
+          <article>
+            <span id="pipelineValue">$0</span>
+            <p>Pipeline</p>
+          </article>
+        </section>
+
+        <section class="command-bar" aria-label="Lead tools">
+          <button id="addLeadButton" class="primary-button" type="button">Add lead</button>
+          <button id="exportButton" class="secondary-button" type="button">Export</button>
+          <label class="search-wrap">
+            <span>Search</span>
+            <input id="searchInput" type="search" placeholder="Name, service, source">
+          </label>
+        </section>
+
+        <section class="assistant-panel" aria-label="Assistant recommendation">
+          <div>
+            <p class="eyebrow">Autopilot</p>
+            <h2 id="assistantTitle">Ready when your first lead arrives</h2>
+            <p id="assistantText">Add a lead and LeadPilot will rank urgency, write the next message, and set the next follow-up date locally on this device.</p>
+          </div>
+          <button id="copyTopMessage" class="secondary-button" type="button" disabled>Copy message</button>
+        </section>
+
+        <section class="tabs" aria-label="Lead filters">
+          <button class="tab active" data-filter="due" type="button">Due</button>
+          <button class="tab" data-filter="all" type="button">All</button>
+          <button class="tab" data-filter="won" type="button">Won</button>
+          <button class="tab" data-filter="lost" type="button">Lost</button>
+        </section>
+
+        <section id="leadList" class="lead-list" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <dialog id="leadDialog">
+      <form id="leadForm" method="dialog">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Lead details</p>
+            <h2 id="dialogTitle">Add lead</h2>
+          </div>
+          <button class="icon-button" value="cancel" type="button" id="closeDialog" aria-label="Close">x</button>
+        </div>
+
+        <input type="hidden" id="leadId">
+
+        <label>
+          Customer name
+          <input id="nameInput" required autocomplete="name" placeholder="Aisha Khan">
+        </label>
+
+        <label>
+          Phone or email
+          <input id="contactInput" required autocomplete="email" placeholder="+971 50 000 0000">
+        </label>
+
+        <label>
+          Service needed
+          <input id="serviceInput" required placeholder="Website redesign, salon booking, AC repair">
+        </label>
+
+        <div class="split">
+          <label>
+            Deal value
+            <input id="valueInput" type="number" min="0" step="50" placeholder="1500">
+          </label>
+          <label>
+            Lead temperature
+            <select id="temperatureInput">
+              <option>Hot</option>
+              <option selected>Warm</option>
+              <option>Cold</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="split">
+          <label>
+            Source
+            <input id="sourceInput" placeholder="Instagram, referral, Google">
+          </label>
+          <label>
+            Stage
+            <select id="stageInput">
+              <option>New</option>
+              <option>Contacted</option>
+              <option>Proposal</option>
+              <option>Won</option>
+              <option>Lost</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          Last contact date
+          <input id="lastContactInput" type="date">
+        </label>
+
+        <label>
+          Notes
+          <textarea id="notesInput" rows="4" placeholder="Budget, objections, timing, promised callback"></textarea>
+        </label>
+
+        <menu>
+          <button id="deleteButton" class="danger-button hidden" type="button">Delete</button>
+          <span></span>
+          <button class="secondary-button" value="cancel" type="button" id="cancelButton">Cancel</button>
+          <button class="primary-button" id="saveButton" type="submit">Save lead</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <template id="leadCardTemplate">
+      <article class="lead-card">
+        <div class="lead-main">
+          <div>
+            <p class="lead-meta"></p>
+            <h3></h3>
+            <p class="lead-service"></p>
+          </div>
+          <strong class="lead-score"></strong>
+        </div>
+        <p class="lead-message"></p>
+        <div class="lead-actions">
+          <button class="secondary-button copy-message" type="button">Copy</button>
+          <button class="secondary-button mark-contacted" type="button">Contacted</button>
+          <button class="secondary-button edit-lead" type="button">Edit</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>

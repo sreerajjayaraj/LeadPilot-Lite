@@ -1,0 +1,17 @@
+{
+  "name": "LeadPilot Lite",
+  "short_name": "LeadPilot",
+  "description": "A mobile-first lead follow-up assistant for small businesses.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#edf1f5",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
