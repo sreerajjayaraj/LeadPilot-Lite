@@ -1,0 +1,35 @@
+LEADPILOT LITE — QUICK START
+============================
+
+Thank you for purchasing LeadPilot Lite.
+
+LeadPilot Lite is a simple mobile-first lead follow-up assistant for small businesses, freelancers, agents, and local service providers.
+
+HOW TO START
+------------
+1. Extract the ZIP file.
+2. Open the extracted folder.
+3. Double-click index.html to open the app in your browser.
+4. Start adding leads and follow-ups.
+5. Optional: on mobile, use your browser's "Add to Home Screen" option.
+
+NO SERVER SETUP REQUIRED
+------------------------
+LeadPilot Lite is designed to run directly in the browser.
+
+You do not need:
+- hosting
+- database setup
+- user accounts
+- server installation
+- monthly subscription
+
+IMPORTANT USAGE NOTE
+--------------------
+This package is for use by the purchaser only.
+
+Redistribution, resale, or public sharing of this package is not permitted without written permission.
+
+SUPPORT
+-------
+For help or delivery questions, contact AppPilot Store using the contact form on the website.
